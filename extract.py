@@ -84,6 +84,7 @@ for submission in top:
 
 data = pd.DataFrame(dict)
 data = data.replace('[^a-zA-Z0-9:/. ]', '', regex=True)
+data = data.replace('\n',' ', regex=True)
 
 def get_date(created):
     return dt.datetime.fromtimestamp(created)
