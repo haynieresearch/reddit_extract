@@ -64,7 +64,7 @@ connection = praw.Reddit(client_id=f"{client}", \
                          password=f"{pwd}")
 
 sub = connection.subreddit(f"{arg1}")
-top = sub.top(limit=500)
+top = sub.new(limit=500)
 
 dict = { "title":[], \
          "score":[], \
@@ -74,15 +74,16 @@ dict = { "title":[], \
          "body":[]}
 
 for submission in top:
-    dict["title"].append(submission.title.replace(",", ""))
+    dict["title"].append(submission.title)
     dict["score"].append(submission.score)
     dict["id"].append(submission.id)
     dict["url"].append(submission.url)
     dict["comms_num"].append(submission.num_comments)
     dict["created"].append(submission.created)
-    dict["body"].append(submission.selftext.replace(",", ""))
+    dict["body"].append(submission.selftext)
 
 data = pd.DataFrame(dict)
+data = data.replace('[^a-zA-Z0-9:/. ]', '', regex=True)
 
 def get_date(created):
     return dt.datetime.fromtimestamp(created)
