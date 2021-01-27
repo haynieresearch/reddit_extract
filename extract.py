@@ -64,7 +64,7 @@ connection = praw.Reddit(client_id=f"{client}", \
                          password=f"{pwd}")
 
 sub = connection.subreddit(f"{arg1}")
-top = sub.top(limit=500)
+top = sub.top(limit=10)
 
 dict = { "title":[], \
          "score":[], \
@@ -74,15 +74,13 @@ dict = { "title":[], \
          "body":[]}
 
 for submission in top:
-    submission.title.encode('ascii', 'ignore')
-    submission.selftext.encode('ascii', 'ignore')
-    dict["title"].append(submission.title)
+    dict["title"].append(submission.title.replace(",", ""))
     dict["score"].append(submission.score)
     dict["id"].append(submission.id)
     dict["url"].append(submission.url)
     dict["comms_num"].append(submission.num_comments)
     dict["created"].append(submission.created)
-    dict["body"].append(submission.selftext)
+    dict["body"].append(submission.selftext.replace(",", ""))
 
 data = pd.DataFrame(dict)
 
@@ -93,4 +91,9 @@ _timestamp = data["created"].apply(get_date)
 
 data = data.assign(timestamp = _timestamp)
 data.to_csv(f"{arg2}{arg1}.csv", index=False)
+
+
+os.system(f"sed -i '' 's/\"//g' {arg2}{arg1}.csv")
+os.system(f"sed -i '' 's/\“//g' {arg2}{arg1}.csv")
+os.system(f"sed -i '' 's/\”//g' {arg2}{arg1}.csv")
 exit(0)
