@@ -1,5 +1,6 @@
 .bulkload.sh.swp
 *.log
+*.csv
 nohup.out
 bulkload.sh
 test.py
