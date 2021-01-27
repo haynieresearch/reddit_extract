@@ -10,7 +10,7 @@ pip3 install -r requirements.txt\
 rename example.settings.yaml to settings.yaml and update with your credentials\
 
 ## USAGE
-extract.py subreddit_name /path/to/save/csv/\
+extract.py subreddit_name /path/to/save/csv/
 
 ## LICENSE
 Copyright (c) 2020 Haynie IPHC, LLC\
