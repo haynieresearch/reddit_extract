@@ -91,9 +91,4 @@ _timestamp = data["created"].apply(get_date)
 
 data = data.assign(timestamp = _timestamp)
 data.to_csv(f"{arg2}{arg1}.csv", index=False)
-
-
-os.system(f"sed -i '' 's/\"//g' {arg2}{arg1}.csv")
-os.system(f"sed -i '' 's/\“//g' {arg2}{arg1}.csv")
-os.system(f"sed -i '' 's/\”//g' {arg2}{arg1}.csv")
 exit(0)
