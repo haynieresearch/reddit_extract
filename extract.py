@@ -64,7 +64,7 @@ connection = praw.Reddit(client_id=f"{client}", \
                          password=f"{pwd}")
 
 sub = connection.subreddit(f"{arg1}")
-top = sub.top(limit=10)
+top = sub.top(limit=500)
 
 dict = { "title":[], \
          "score":[], \
