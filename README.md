@@ -12,6 +12,9 @@ rename example.settings.yaml to settings.yaml and update with your credentials\
 ## USAGE
 extract.py subreddit_name /path/to/save/csv/
 
+## EXAMPLE SAS CODE
+Included is a peice of SAS code called "create_sas_dataset.sas" that you can use as an example of how to use this program to import the data into a SAS dataset.
+
 ## LICENSE
 Copyright (c) 2020 Haynie IPHC, LLC\
 Developed by Haynie Research & Development, LLC for Black Label Investment Partners, LLC under license.
